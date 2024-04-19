@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "start": "nodemon --inspect index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  },
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "Hoc Expressjs",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karysqa12xc/LearnExpressJS.git"
+  },
+  "keywords": [
+    "Karysqa"
+  ],
+  "author": "Karysqa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karysqa12xc/LearnExpressJS/issues"
+  },
+  "homepage": "https://github.com/Karysqa12xc/LearnExpressJS#readme"
+}

@@ -1,16 +1,18 @@
 {
   "scripts": {
-    "start": "nodemon --inspect index.js"
+    "start": "nodemon --inspect src\\index.js",
+    "watch": "node-sass --watch src\\resources\\scss\\ --output src\\public\\css\\ "
   },
   "dependencies": {
     "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "morgan": "^1.10.0",
     "nodemon": "^3.1.0"
   },
   "name": "blog",
   "version": "1.0.0",
   "description": "Hoc Expressjs",
   "main": "index.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Karysqa12xc/LearnExpressJS.git"
@@ -23,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Karysqa12xc/LearnExpressJS/issues"
   },
-  "homepage": "https://github.com/Karysqa12xc/LearnExpressJS#readme"
+  "homepage": "https://github.com/Karysqa12xc/LearnExpressJS#readme",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
 }

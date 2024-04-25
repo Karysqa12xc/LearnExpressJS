@@ -1,0 +1,69 @@
+<h1 class="mt-4">Khoá học của tôi</h1>
+<table class="table mt-4">
+    <thead>
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Tên khoá học</th>
+            <th scope="col">Thời gian tạo</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each courses}}
+        <tr>
+            <td> {{sum @index 1}}</td>
+            <td>
+                {{this.name}}
+            </td>
+            <td>
+                {{this.createdAt}}
+            </td>
+            <td>
+                <a href="/courses/{{this._id}}/edit"><button class="btn btn-success">Sửa</button></a> |
+                <button class="btn btn-danger" data-bs-toggle="modal" data-id="{{this._id}}"
+                    data-bs-target="#delete">Xoá</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+    <div class="modal fade" id="delete" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Bạn có chắc?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Nếu bạn xoá bản ghi này thì nó sẽ bị xoá
+                    vĩnh viễn không có cách nào để khôi phục
+                </div>
+                <div class="modal-footer">
+                    <button id="btn-delete-course" type="button" class="btn btn-danger">Xoá</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</table>
+{{!-- Delete hidden form --}}
+<form name="delete-course-form" method="post">
+       
+</form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var courseId;
+        var deleteForm = document.forms['delete-course-form'];
+        var delete_course = document.getElementById("delete")
+        delete_course.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var id = button.getAttribute("data-id");
+            courseId = id;
+        });
+        var btnDeleteCourse = document.getElementById("btn-delete-course");
+        btnDeleteCourse.onclick = function(){
+            deleteForm.action = "/courses/" + courseId + "?_method=DELETE"
+            deleteForm.submit();
+        }
+    })
+
+</script>
